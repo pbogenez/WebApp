@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  web:
+    build: .
+    depends_on:
+      - mysql
+    ports:
+      - "8000:8000"
+      
+  mysql:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: app_db
+    ports:
+      - "3305:3305"
